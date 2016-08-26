@@ -20,18 +20,32 @@ As of Aug 26, 2016, these are the branches in spark-jobserver (remotes/origin/sp
 remotes/origin/spark-2.0-preview
 
 $ git branch -a
+
   master
+
   remotes/origin/HEAD -> origin/master
+
   remotes/origin/chef-deploy
+
   remotes/origin/code-coverage
+
   remotes/origin/hntd187-patch-1
+
   remotes/origin/jobserver-0.4.2-SNAPSHOT-spark-1.1.0
+
   remotes/origin/jobserver-0.5.1-SNAPSHOT-spark-1.2.1
+
   remotes/origin/jobserver-0.5.3-SNAPSHOT-spark-1.3.1
+
   remotes/origin/jobserver-0.6.0-spark-1.4.1
+
   remotes/origin/jobserver-0.6.1-spark-1.5.2
+
   remotes/origin/jobserver-0.6.2-spark-1.6.1
+
   remotes/origin/master
+
   remotes/origin/spark-2.0-preview
+
   remotes/origin/velvia/disable-context-jvm-experimental
 
