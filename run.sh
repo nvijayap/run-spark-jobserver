@@ -10,7 +10,7 @@ if [ $# -ne 2 ]; then
 fi
 
 [ -d $TOP/spark-jobserver ] || git clone https://github.com/spark-jobserver/spark-jobserver
-[ -d $TOP/spark-jobserver/target ] || ( cd $TOPspark-jobserver ; sbt assembly )
+[ -d $TOP/spark-jobserver/target ] || ( cd $TOP/spark-jobserver ; sbt assembly )
 
 mkdir -p try
 /bin/cp -p $TOP/spark-jobserver/bin/server_start.sh $TOP/try
