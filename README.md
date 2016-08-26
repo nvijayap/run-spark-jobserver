@@ -20,7 +20,7 @@ As of Aug 26, 2016, these are the branches in spark-jobserver (remotes/origin/sp
 remotes/origin/spark-2.0-preview
 
 $ git branch -a
-* master
+  master
   remotes/origin/HEAD -> origin/master
   remotes/origin/chef-deploy
   remotes/origin/code-coverage
