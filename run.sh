@@ -12,7 +12,7 @@ fi
 [ -d $TOP/spark-jobserver ] || git clone https://github.com/spark-jobserver/spark-jobserver $TOP/spark-jobserver
 [ -d $TOP/spark-jobserver/target ] || ( cd $TOP/spark-jobserver ; sbt assembly )
 
-mkdir -p try
+mkdir -p $TOP/try
 /bin/cp -p $TOP/spark-jobserver/bin/server_start.sh $TOP/try
 /bin/cp -p $TOP/spark-jobserver/bin/setenv.sh $TOP/try
 /bin/cp -p $TOP/spark-jobserver/config/local.conf.template $TOP/try/local.conf
