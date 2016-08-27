@@ -17,7 +17,7 @@ else
   ( cd $TOP/spark-jobserver ; git checkout $2 )
 fi
 
-( cd $TOP/spark-jobserver ; sbt assembly )
+( cd $TOP/spark-jobserver ; sbt 'set test in assembly := {}' clean assembly )
 
 INSTALL_DIR=$TOP/try ; mkdir -p $INSTALL_DIR
 /bin/cp -p $TOP/spark-jobserver/bin/server_start.sh $TOP/try
