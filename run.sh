@@ -9,7 +9,7 @@ if [ $# -ne 2 ]; then
   echo ; exit 1
 fi
 
-[ -d $TOP/spark-jobserver ] || git clone https://github.com/spark-jobserver/spark-jobserver $TOP
+[ -d $TOP/spark-jobserver ] || git clone https://github.com/spark-jobserver/spark-jobserver $TOP/spark-jobserver
 [ -d $TOP/spark-jobserver/target ] || ( cd $TOP/spark-jobserver ; sbt assembly )
 
 mkdir -p try
