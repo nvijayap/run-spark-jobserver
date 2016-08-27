@@ -2,7 +2,7 @@
 
 TOP=$(cd `dirname $0`; pwd -P)
 
-if [ $# -ne 2 ]; then
+if [ $# -ne 3 ]; then
   echo -e "\nNeed these args -"
   echo -e "\n1. Fullpath of SPARK_HOME"
   echo -e "\n2. spark-jobserver branch"
