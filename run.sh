@@ -46,8 +46,7 @@ for port in `seq 9990 9999`; do
   [ $? -ne 0 ] && JMX_PORT=$port && break
 done
 
-sed "s|JMX_PORT=9999|JMX_PORT=$JMX_PORT|" $INSTALL_DIR/setenv.sh >| $INSTALL_DIR/new_setenv.sh
-/bin/mv $INSTALL_DIR/new_setenv.sh $INSTALL_DIR/setenv.sh
+echo "JMX_PORT=$JMX_PORT" >> $INSTALL_DIR/settings.sh
 
 cmd=$TOP/try/server_start.sh
 [ "$3" == "fg" ] && cmd="JOBSERVER_FG=1 $cmd"
