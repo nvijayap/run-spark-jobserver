@@ -5,7 +5,8 @@ TOP=$(cd `dirname $0`; pwd -P)
 if [ $# -ne 2 ]; then
   echo -e "\nNeed these args -"
   echo -e "\n1. Fullpath of SPARK_HOME"
-  echo -e "\n2. Foreground (fg) or Background (bg)"
+  echo -e "\n2. spark-jobserver branch"
+  echo -e "\n3. Foreground (fg) or Background (bg)"
   echo ; exit 1
 fi
 
@@ -13,6 +14,7 @@ if [ -d $TOP/spark-jobserver ]; then
   ( cd $TOP/spark-jobserver ; git pull )
 else
   git clone https://github.com/spark-jobserver/spark-jobserver $TOP/spark-jobserver
+  ( cd $TOP/spark-jobserver ; git checkout $2 )
 fi
 
 ( cd $TOP/spark-jobserver ; sbt assembly )
@@ -48,6 +50,6 @@ sed "s|JMX_PORT=9999|JMX_PORT=$JMX_PORT|" $INSTALL_DIR/setenv.sh >| $INSTALL_DIR
 /bin/mv $INSTALL_DIR/new_setenv.sh $INSTALL_DIR/setenv.sh
 
 cmd=$TOP/try/server_start.sh
-[ "$2" == "fg" ] && cmd="JOBSERVER_FG=1 $cmd"
+[ "$3" == "fg" ] && cmd="JOBSERVER_FG=1 $cmd"
 eval $cmd
 
