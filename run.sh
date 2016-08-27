@@ -47,6 +47,8 @@ for port in `seq 9990 9999`; do
 done
 
 echo "JMX_PORT=$JMX_PORT" >> $INSTALL_DIR/settings.sh
+sed 's|9999|$JMX_PORT|' $INSTALL_DIR/server_start.sh >| $INSTALL_DIR/new_server_start.sh
+/bin/mv $INSTALL_DIR/new_server_start.sh $INSTALL_DIR/server_start.sh
 
 cmd=$TOP/try/server_start.sh
 [ "$3" == "fg" ] && cmd="JOBSERVER_FG=1 $cmd"
