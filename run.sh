@@ -14,7 +14,7 @@ if [ -d $TOP/spark-jobserver ]; then
   ( cd $TOP/spark-jobserver ; git pull )
 else
   git clone https://github.com/spark-jobserver/spark-jobserver $TOP/spark-jobserver
-  ( cd $TOP/spark-jobserver ; git checkout $2 )
+  ( cd $TOP/spark-jobserver ; git checkout $2 ; git branch )
 fi
 
 ( cd $TOP/spark-jobserver ; sbt 'set test in assembly := {}' clean assembly )
@@ -52,5 +52,6 @@ sed 's|9999|$JMX_PORT|' $INSTALL_DIR/server_start.sh >| $INSTALL_DIR/new_server_
 
 cmd=$TOP/try/server_start.sh
 [ "$3" == "fg" ] && cmd="JOBSERVER_FG=1 $cmd"
+chmod u+x $TOP/try/server_start.sh
 eval $cmd
 
